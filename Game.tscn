@@ -1,0 +1,102 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/Untitled-1.ogv" type="VideoStream" id=1]
+[ext_resource path="res://start_game.gd" type="Script" id=2]
+[ext_resource path="res://assets/gameplay.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/gameplay.gd" type="Script" id=4]
+[ext_resource path="res://Enemies.gd" type="Script" id=5]
+[ext_resource path="res://assets/ka1.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://menu/HUD.gd" type="Script" id=7]
+[ext_resource path="res://Game.gd" type="Script" id=10]
+[ext_resource path="res://assets/VideoPlayer.gd" type="Script" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+size = 28
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 6 )
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 10 )
+
+[node name="Player" type="Node2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="Enemies" type="Node2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="Timer" type="Timer" parent="Enemies"]
+autostart = true
+
+[node name="Projectiles" type="Node2D" parent="."]
+
+[node name="Explosions" type="Node2D" parent="."]
+
+[node name="VideoPlayer" type="VideoPlayer" parent="."]
+show_behind_parent = true
+light_mask = 0
+margin_right = 800.0
+margin_bottom = 1000.0
+mouse_filter = 2
+stream = ExtResource( 1 )
+autoplay = true
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = -23.067
+autoplay = true
+script = ExtResource( 4 )
+
+[node name="HUD" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="health" type="Label" parent="HUD"]
+light_mask = 0
+margin_left = 100.0
+margin_top = 925.0
+margin_right = 300.0
+margin_bottom = 1000.0
+custom_fonts/font = SubResource( 1 )
+text = "HEALTH: "
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="score" type="Label" parent="HUD"]
+light_mask = 0
+margin_left = 500.0
+margin_top = 925.0
+margin_right = 700.0
+margin_bottom = 1000.0
+custom_fonts/font = SubResource( 1 )
+text = "SCORE: "
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="controls" type="Label" parent="HUD"]
+margin_left = 585.0
+margin_top = 15.0
+margin_right = 785.0
+margin_bottom = 65.0
+custom_fonts/font = SubResource( 2 )
+text = "SPACE - SHOOT
+ESCAPE - QUIT"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="timeout" from="Enemies/Timer" to="Enemies" method="_on_Timer_timeout"]
