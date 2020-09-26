@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://projectile/Projectile.gd" type="Script" id=1]
+[ext_resource path="res://sprites/space age projectile.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 3.0962
+height = 0.0
+
+[node name="Projectile" type="KinematicBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource( 1 )
+velocity = Vector2( 0, 12 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 16 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 0, 16 )
+scale = Vector2( 0.25, 0.25 )
+polygon = PoolVector2Array( 12, -123.5, 20, -121.6, 20, 26, 17.2, 26, 12, 27.5, 12, 32.8, 8.8, 36, -10, 36, -10, 33, -11.5, 28, -16.8, 28, -20, 24.8, -20, -121.6, -12, -123.5, -12, -128, 12, -128 )
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2( 0, 25.47 )
+rotation = 1.5708
+scale = Vector2( 0.108, 1 )
+shape = SubResource( 1 )
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
