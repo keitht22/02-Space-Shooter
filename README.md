@@ -1,2 +1,16 @@
 # 02-Space-Shooter
-2D space shooter game which I have titled 'Space Age' after an electronic music project I made while in high school. The goal is to kill 30 enemies before you die. 
+Project 2 for C212
+September 26, 2020
+
+2D space shooter, the goal is to kill 30 enemies without dying.
+
+## Implementation
+GODOT Game Engine
+
+## References
+All Assets were made by me, Tyler Keith
+
+## Future Development
+
+## Created by
+Tyler N Keith
