@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Underwater Laser.wav-f9078ba5f7eae7ea28d0c16dc1f66f57.sample"
+
+[deps]
+
+source_file="res://assets/Underwater Laser.wav"
+dest_files=[ "res://.import/Underwater Laser.wav-f9078ba5f7eae7ea28d0c16dc1f66f57.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
